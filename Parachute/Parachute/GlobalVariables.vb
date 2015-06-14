@@ -19,4 +19,10 @@
     Public Aqua As Color = Color.FromArgb(147, 214, 191)
     Public White As Color = Color.FromArgb(255, 255, 255)
     'End Colours
+
+    'Start Game Balance
+    Public CharacterDropSpeed As Decimal = 0.64
+    Public HelicopterMoveSpeed As Decimal = 1.92
+    Public CharacterMoveSpeed As Decimal = 2
+    'End Game Balance
 End Module
