@@ -1,4 +1,6 @@
 ﻿Module GlobalVariables
+    'All Variablees used more than once should be placed here.
+
     'Start Colours
     Public Black As Color = Color.FromArgb(0, 0, 0)
     Public Magenta As Color = Color.FromArgb(108, 41, 64)
