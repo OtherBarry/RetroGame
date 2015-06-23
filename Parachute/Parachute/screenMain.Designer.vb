@@ -51,7 +51,7 @@ Partial Class screenMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(320, 384)
         Me.Controls.Add(Me.Character)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

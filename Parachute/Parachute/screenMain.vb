@@ -1,5 +1,6 @@
 ﻿Public Class screenMain
     Dim Counter As Integer = 0
+    Dim Counter2 As Integer = 0
     'Input Response Sub
     Private Sub screenMain_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         'Left/Right controls
@@ -13,6 +14,8 @@
             If Character.Left > 0 Then
                 Character.Left = Character.Left - CharacterMoveSpeed
             End If
+        ElseIf e.KeyCode = Keys.Escape Then
+            End
         End If
     End Sub
 
@@ -24,8 +27,11 @@
     'as I imagine it'll be better to have all the enemies scroll
     'rather than the player, as otherwise it'll be too short
     Private Sub timeScroll_Tick(sender As Object, e As EventArgs) Handles timeScroll.Tick
+        Counter2 += 1
         'Entity Movment
-        Character.Top = Character.Top + CharacterDropSpeed
+        If Counter2 > 150 Then
+            Character.Top = Character.Top + CharacterDropSpeed
+        End If
         For i As Integer = 1 To CopterCount
             Copters(i).Left += HelicopterMoveSpeed
         Next
@@ -47,7 +53,6 @@
     ' This Sub Handles generating Entities
     Private Sub timeCopter_Tick(sender As Object, e As EventArgs) Handles timeCopterGen.Tick
         Randomize()
-        Counter += 1
         'Copter Generation
         If Counter Mod 2 = 0 Then
             CopterCount += 1
@@ -56,7 +61,7 @@
             Copters(CopterCount).Height = 26
             Copters(CopterCount).Width = 64
             Copters(CopterCount).SizeMode = PictureBoxSizeMode.StretchImage
-            Copters(CopterCount).Top = CInt(Math.Floor((384 - 0 + 1) * Rnd())) + 0
+            Copters(CopterCount).Top = CInt(Math.Floor((384 - 50 + 1) * Rnd())) + 50
             Copters(CopterCount).Left = -64
             Copters(CopterCount).Name = "Copter" + CopterCount.ToString
             Me.Controls.Add(Copters(CopterCount))
