@@ -24,25 +24,14 @@ Partial Class screenMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.timeScroll = New System.Windows.Forms.Timer(Me.components)
-        Me.Copter1 = New System.Windows.Forms.PictureBox()
         Me.Character = New System.Windows.Forms.PictureBox()
-        CType(Me.Copter1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.timeCopterGen = New System.Windows.Forms.Timer(Me.components)
         CType(Me.Character, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'timeScroll
         '
         Me.timeScroll.Interval = 17
-        '
-        'Copter1
-        '
-        Me.Copter1.Image = Global.Parachute.My.Resources.Resources.HelicoptereSmall
-        Me.Copter1.Location = New System.Drawing.Point(-65, 179)
-        Me.Copter1.Name = "Copter1"
-        Me.Copter1.Size = New System.Drawing.Size(64, 26)
-        Me.Copter1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Copter1.TabIndex = 1
-        Me.Copter1.TabStop = False
         '
         'Character
         '
@@ -54,24 +43,25 @@ Partial Class screenMain
         Me.Character.TabIndex = 0
         Me.Character.TabStop = False
         '
+        'timeCopterGen
+        '
+        Me.timeCopterGen.Interval = 1000
+        '
         'screenMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(135, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(320, 384)
-        Me.Controls.Add(Me.Copter1)
         Me.Controls.Add(Me.Character)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "screenMain"
         Me.Text = "Form1"
-        CType(Me.Copter1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Character, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Character As System.Windows.Forms.PictureBox
     Friend WithEvents timeScroll As System.Windows.Forms.Timer
-    Friend WithEvents Copter1 As System.Windows.Forms.PictureBox
-
+    Friend WithEvents timeCopterGen As Timer
 End Class
