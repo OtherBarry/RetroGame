@@ -55,7 +55,7 @@ Partial Class screenMain
         '
         Me.LoadScreenPic.Location = New System.Drawing.Point(-2, 0)
         Me.LoadScreenPic.Name = "LoadScreenPic"
-        Me.LoadScreenPic.Size = New System.Drawing.Size(326, 388)
+        Me.LoadScreenPic.Size = New System.Drawing.Size(326, 384)
         Me.LoadScreenPic.TabIndex = 1
         Me.LoadScreenPic.TabStop = False
         '

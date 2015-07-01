@@ -2,13 +2,17 @@
     'All Variablees used more than once should be placed here.
     'Start General Variables
     Public GameActive As Boolean = False
+    Public GameScroll As Boolean = True
+    Public Declare Function GetKeyState Lib "user32" (ByVal nVirtKey As IntPtr) As Short
     'End General Variables
 
     'Start Game Balance
     Public CharacterDropSpeed As Decimal = 0.64
     Public HelicopterMoveSpeed As Decimal = 1.92
     Public CharacterMoveSpeed As Decimal = 2
-    Public Difficulty As Integer = 1.5
+    Public Difficulty As Integer = 1
+    Public Seconds As Integer = 30
+    Public GameLength As Integer = CInt(Math.Floor((Seconds * 0.756) - 8.8984375)) * 2
     'End Game Balance
 
     'Start Object Generation
@@ -42,8 +46,13 @@
             Copters(CopterCount).Height = 26
             Copters(CopterCount).Width = 64
             Copters(CopterCount).SizeMode = PictureBoxSizeMode.StretchImage
-            Copters(CopterCount).Top = CInt(Math.Floor((308 - 24 + 1) * Rnd())) + 24
-            Copters(CopterCount).Left = -64
+            Copters(CopterCount).Top = CInt(Math.Floor((308 - 100 + 1) * Rnd())) + 100
+            If CopterCount Mod 2 = 0 Then
+                Copters(CopterCount).Left = -64
+            Else
+                Copters(CopterCount).Left = 384
+                Copters(CopterCount).Image.RotateFlip(RotateFlipType.RotateNoneFlipX)
+            End If
             Copters(CopterCount).Name = "Copter" + CopterCount.ToString
             screenMain.Controls.Add(Copters(CopterCount))
         End If
