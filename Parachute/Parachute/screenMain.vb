@@ -1,17 +1,11 @@
 ﻿Public Class screenMain
-    Dim Countdown As Integer = 5
     'Input Response Sub
     Private Sub screenMain_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
-            GameActive = False
-            Countdown = 5
-            Character.Top = 0
-            LoadScreenLabel.Text = "Parachute"
-            LoadScreenCountdown.Text = "Drop Zone in... " + Countdown.ToString
-            timeCopterGen.Enabled = True
-            timeScroll.Enabled = True
-            LoadScreenLabel.Left = (Me.Width / 2) - (LoadScreenLabel.Width / 2)
-            LoadScreenCountdown.Left = (Me.Width / 2) - (LoadScreenCountdown.Width / 2)
+            If GameActive = True Then
+                GameOver()
+            End If
+            GameReset()
         ElseIf e.KeyCode = Keys.P And GameActive = True Then
             If timeCopterGen.Enabled = True Or timeScroll.Enabled = True Then
                 timeCopterGen.Enabled = False
@@ -70,32 +64,35 @@
                 If (Character.Left + Character.Width) > Copters(i).Left And Character.Left < (Copters(i).Left + Copters(i).Width) And (Character.Top + Character.Height) > Copters(i).Top And Character.Top < (Copters(i).Top + Copters(i).Height) Then
                     LoadScreenLabel.Text = "You Lose"
                     LoadScreenCountdown.Text = "Press Escape To Restart"
-                    GameOver()
+                GameActive = False
+                GameOver()
                 End If
             Next
-            If Character.Top = Me.Height - Character.Height Then
-                LoadScreenLabel.Text = "You Win!"
-                LoadScreenCountdown.Text = "Press Escape To Restart"
-                GameOver()
-            End If
+        If Character.Top = Me.Height - Character.Height Then
+            LoadScreenLabel.Text = "You Win!"
+            LoadScreenCountdown.Text = "Press Escape To Restart"
+            GameActive = False
+            GameOver()
+        End If
     End Sub
     ' This Sub Handles generating Entities
     Private Sub timeCopter_Tick(sender As Object, e As EventArgs) Handles timeCopterGen.Tick
         Counter += 1
         Countdown -= 1
+        If Countdown = 0 Then
+            Countdown = 5
+            If GameActive = False Then
+                LoadScreenPic.Visible = False
+                LoadScreenLabel.Visible = False
+                LoadScreenCountdown.Visible = False
+                GameActive = True
+            End If
+        End If
         LoadScreenCountdown.Text = "Drop Zone in... " + Countdown.ToString
         CopterGen()
         CloudGen()
         CloudGen()
-        If Countdown = 0 Then
-            LoadScreenPic.Visible = False
-            LoadScreenLabel.Visible = False
-            LoadScreenCountdown.Visible = False
-            GameActive = True
-        ElseIf Countdown > 0 Then
-            LoadScreenCountdown.Text = "Drop Zone in... " + Countdown.ToString
-        End If
-        If GameLength <= CloudCount / 2 Then
+        If GameLength <= Counter * 2 And GameActive = True Then
             GameScroll = False
         End If
     End Sub

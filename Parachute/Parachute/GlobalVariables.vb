@@ -4,6 +4,7 @@
     Public GameActive As Boolean = False
     Public GameScroll As Boolean = True
     Public Declare Function GetKeyState Lib "user32" (ByVal nVirtKey As IntPtr) As Short
+    Public Countdown As Integer = 5
     'End General Variables
 
     'Start Game Balance
@@ -11,8 +12,8 @@
     Public HelicopterMoveSpeed As Decimal = 1.92
     Public CharacterMoveSpeed As Decimal = 2
     Public Difficulty As Integer = 1
-    Public Seconds As Integer = 30
-    Public GameLength As Integer = CInt(Math.Floor((Seconds * 0.756) - 8.8984375)) * 2
+    Public Seconds As Integer = 60
+    Public GameLength As Integer = CInt(Math.Floor((1000 / screenMain.timeCopterGen.Interval) * (Seconds - (350 / (CharacterDropSpeed * 1000 / screenMain.timeScroll.Interval)))))
     'End Game Balance
 
     'Start Object Generation
@@ -58,7 +59,6 @@
         End If
     End Sub
     Public Sub GameOver()
-        GameActive = False
         screenMain.timeCopterGen.Enabled = False
         screenMain.timeScroll.Enabled = False
         screenMain.LoadScreenPic.Visible = True
@@ -69,6 +69,27 @@
         screenMain.LoadScreenCountdown.BringToFront()
         screenMain.LoadScreenLabel.Left = (screenMain.Width / 2) - (screenMain.LoadScreenLabel.Width / 2)
         screenMain.LoadScreenCountdown.Left = (screenMain.Width / 2) - (screenMain.LoadScreenCountdown.Width / 2)
+        GameScroll = False
+    End Sub
+    Public Sub GameReset()
+        Counter = 0
+        For i As Integer = 1 To CloudCount
+            screenMain.Controls.Remove(Clouds(i))
+        Next
+        For i As Integer = 1 To CopterCount
+            screenMain.Controls.Remove(Copters(i))
+        Next
+        CloudCount = 1
+        CopterCount = 1
+        Countdown = 5
+        screenMain.Character.Top = 10
+        screenMain.LoadScreenLabel.Text = "Parachute"
+        screenMain.LoadScreenCountdown.Text = "Drop Zone in... " + Countdown.ToString
+        screenMain.timeCopterGen.Enabled = True
+        screenMain.timeScroll.Enabled = True
+        screenMain.LoadScreenLabel.Left = (screenMain.Width / 2) - (screenMain.LoadScreenLabel.Width / 2)
+        screenMain.LoadScreenCountdown.Left = (screenMain.Width / 2) - (screenMain.LoadScreenCountdown.Width / 2)
+        GameScroll = True
     End Sub
     'End Subprograms
 End Module
