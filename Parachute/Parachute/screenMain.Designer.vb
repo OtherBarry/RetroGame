@@ -62,22 +62,22 @@ Partial Class screenMain
         'LoadScreenLabel
         '
         Me.LoadScreenLabel.AutoSize = True
-        Me.LoadScreenLabel.Font = New System.Drawing.Font("Playbill", 100.0!, System.Drawing.FontStyle.Bold)
+        Me.LoadScreenLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 100.0!, System.Drawing.FontStyle.Bold)
         Me.LoadScreenLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.LoadScreenLabel.Location = New System.Drawing.Point(-15, 111)
         Me.LoadScreenLabel.Name = "LoadScreenLabel"
-        Me.LoadScreenLabel.Size = New System.Drawing.Size(362, 136)
+        Me.LoadScreenLabel.Size = New System.Drawing.Size(687, 153)
         Me.LoadScreenLabel.TabIndex = 2
         Me.LoadScreenLabel.Text = "Parachute"
         '
         'LoadScreenCountdown
         '
         Me.LoadScreenCountdown.AutoSize = True
-        Me.LoadScreenCountdown.Font = New System.Drawing.Font("Playbill", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoadScreenCountdown.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoadScreenCountdown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.LoadScreenCountdown.Location = New System.Drawing.Point(87, 220)
         Me.LoadScreenCountdown.Name = "LoadScreenCountdown"
-        Me.LoadScreenCountdown.Size = New System.Drawing.Size(126, 27)
+        Me.LoadScreenCountdown.Size = New System.Drawing.Size(216, 31)
         Me.LoadScreenCountdown.TabIndex = 3
         Me.LoadScreenCountdown.Text = "Drop Zone in... 5"
         '
@@ -94,7 +94,7 @@ Partial Class screenMain
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "screenMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "7"
         CType(Me.Character, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadScreenPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
