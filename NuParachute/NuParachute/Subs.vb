@@ -1,6 +1,15 @@
 ﻿Module Subs
     Public Sub Reset()
-
+        Enemies.Clear()
+        DeciSeconds = 0
+        Game.Character.Top = 75
+        Game.Character.Left = 310
+        Lives = 3
+        GameScroll = True
+        Collision = False
+        Game.txtPaused.Text = "Paused"
+        GameWin = False
+        Pause()
     End Sub
     Public Sub Pause()
         If Paused = False Then
@@ -9,6 +18,9 @@
             Game.Spawn.Enabled = False
             Paused = True
             Game.txtPaused.Visible = True
+            If GameWin = True Then
+                Game.txtPaused.Text = "You Win"
+            End If
         Else
             Game.DeciSecond.Enabled = True
             Game.Tick.Enabled = True
@@ -16,6 +28,7 @@
             Paused = False
             Game.txtPaused.Visible = False
         End If
+
     End Sub
     Public Sub LabelUpdate()
         Game.txtLives.Text = "Lives : " + Lives.ToString

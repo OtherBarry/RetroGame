@@ -59,9 +59,7 @@
                 End If
             End If
             If Game.Character.Top >= Game.Height - 64 - Game.Character.Height Then
-                Pause()
-                Game.txtPaused.Visible = False
-                MsgBox("Congrations; You Done It!")
+                GameWin = True
             End If
         End Sub
 
