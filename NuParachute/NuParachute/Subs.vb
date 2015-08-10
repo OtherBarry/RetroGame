@@ -35,6 +35,20 @@
         Game.txtLives.Left = Game.Width - Game.txtLives.Width - 17
         Game.txtTime.Text = "Time : " + (DeciSeconds / 10).ToString + " s"
         Game.txtTime.Left = Game.Width - Game.txtTime.Width - 17
+        Dim DiffString As String
+        If Difficulty = 5 Then
+            DiffString = "Very Easy"
+        ElseIf Difficulty = 4
+            DiffString = "Easy"
+        ElseIf Difficulty = 2
+            DiffString = "Hard"
+        ElseIf Difficulty = 1
+            DiffString = "Very Hard"
+        Else
+            DiffString = "Medium"
+        End If
+        Menu.lblDifficulty.Text = "Current Difficulty = " + DiffString
+        Menu.lblDifficulty.Left = (Menu.Width / 2) - (Menu.lblDifficulty.Width / 2)
     End Sub
 
     Public Sub CharacterMove()

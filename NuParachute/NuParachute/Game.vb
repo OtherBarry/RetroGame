@@ -11,13 +11,13 @@
         If e.KeyCode = Keys.P Then
             Pause()
         End If
-        If e.KeyCode = Keys.Escape Then
+        If e.KeyCode = Keys.Escape And Paused = True Then
             Reset()
         End If
     End Sub
     Private Sub DeciSecond_Tick(sender As Object, e As EventArgs) Handles DeciSecond.Tick
         DeciSeconds += 1
-        If DeciSeconds Mod 5 = 0 Then
+        If DeciSeconds Mod (Difficulty * 5) = 0 Then
             Enemies.Add(New Enemy("Helicopter"))
         End If
         If DeciSeconds / 10 >= Seconds - 8.4 Then
