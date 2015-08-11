@@ -1,5 +1,6 @@
 ﻿Module Variables
     Public Enemies As New List(Of Object)
+    Public Backgrounds As New List(Of Object)
     Public CharacterDropSpeed As Decimal = 2
     Public HelicopterMoveSpeed As Decimal = 4
     Public CharacterMoveSpeed As Decimal = 3

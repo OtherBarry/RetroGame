@@ -13,7 +13,7 @@
         Private Exist As Boolean = True
         'End Variables
 
-        Public Sub New(Type)
+        Public Sub New(ByVal Type As String)
             Randomize()
             Dim random As Integer = CInt(Math.Floor((2 - 1 + 1) * Rnd())) + 2
             If Type = "Helicopter" Then
@@ -81,7 +81,38 @@
     End Class
 
     Public Class Background
-
+        Private Image As Image
+        Private Top As Integer
+        Private Left As Integer
+        Private Height As Integer
+        Private Width As Integer
+        Private Exist As Boolean = True
+        Public Sub New(ByVal Type As String)
+            If Type = "Cloud" Then
+                Image = My.Resources.pixelCloudV2
+                Height = 0
+                Width = 0
+                Top = Game.Height + Height - 64
+                Exist = False
+                Randomize()
+                Dim random As Integer = CInt(Math.Floor(((5 - 1) + 1) * Rnd())) + 5
+                If DeciSeconds Mod random = 0 Then
+                    Height = My.Resources.pixelCloudV2.Height * 3
+                    Width = My.Resources.pixelCloudV2.Width * 3
+                    Exist = True
+                End If
+                Randomize()
+                Left = CInt(Math.Floor(((Game.Width - Width) - (0) + 1) * Rnd())) + (0)
+            End If
+        End Sub
+        Public Sub Draw(e As PaintEventArgs)
+            e.Graphics.DrawImage(Image, Left, Top, Width, Height)
+        End Sub
+        Public Sub Move()
+            If GameScroll = True And Exist = True Then
+                Top -= CharacterDropSpeed
+            End If
+        End Sub
     End Class
 
     Public Class Powerup

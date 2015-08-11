@@ -1,6 +1,7 @@
 ﻿Public Class Game
     Private Sub Game_Load(sender As Object, e As EventArgs) Handles Me.Load
         Enemies.Add(New Enemy("Helicopter"))
+        Backgrounds.Add(New Background("Cloud"))
         DeciSecond.Enabled = True
         Tick.Enabled = True
         Milli.Enabled = True
@@ -18,6 +19,7 @@
     End Sub
     Private Sub DeciSecond_Tick(sender As Object, e As EventArgs) Handles DeciSecond.Tick
         DeciSeconds += 1
+        Backgrounds.Add(New Background("Cloud"))
         If DeciSeconds Mod (Difficulty * 5) = 0 Then
             Enemies.Add(New Enemy("Helicopter"))
         End If
@@ -28,6 +30,9 @@
     End Sub
 
     Private Sub Draw(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        For Each bg As Background In Backgrounds
+            bg.Draw(e)
+        Next
         For Each en As Enemy In Enemies
             en.Draw(e)
         Next
@@ -38,6 +43,9 @@
         For Each en As Enemy In Enemies
             en.Move()
             en.CollisionDetect()
+        Next
+        For Each bg As Background In Backgrounds
+            bg.Move()
         Next
         Me.Invalidate()
         CharacterMove()
@@ -71,6 +79,21 @@
             Else
                 Pause()
             End If
+        End If
+    End Sub
+
+    Private Sub Game_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+        DeciSecond.Enabled = False
+        Milli.Enabled = False
+        Tick.Enabled = False
+        Paused = True
+        txtPaused.Visible = True
+        If GameWin = True Then
+            txtPaused.Text = "You Win"
+        ElseIf Collision = True
+            txtPaused.Text = "You Lose"
+        Else
+            txtPaused.Text = "Paused"
         End If
     End Sub
 End Class
