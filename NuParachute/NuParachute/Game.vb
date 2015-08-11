@@ -3,6 +3,7 @@
         Enemies.Add(New Enemy("Helicopter"))
         DeciSecond.Enabled = True
         Tick.Enabled = True
+        Milli.Enabled = True
         DoubleBuffered = True
         Character.Top = 75
         Character.Left = (Me.Width / 2) - (Character.Width / 2)
@@ -45,4 +46,31 @@
         End If
     End Sub
 
+    Private Sub Milli_Tick(sender As Object, e As EventArgs) Handles Milli.Tick
+        Millis += 1
+        If Collision = True Then
+            If Lives > -1 Then
+                DeciSecond.Enabled = False
+                Tick.Enabled = False
+                If Millis Mod 10 = 0 Then
+                    If Counter < 6 Then
+                        Counter += 1
+                        If Character.Visible = True Then
+                            Character.Visible = False
+                        Else
+                            Character.Visible = True
+                        End If
+                    Else
+                        Collision = False
+                        Counter = 0
+                        DeciSecond.Enabled = True
+                        Tick.Enabled = True
+                    End If
+                End If
+
+            Else
+                Pause()
+            End If
+        End If
+    End Sub
 End Class

@@ -13,4 +13,6 @@
     Public Lives As Integer = 3
     Public Paused As Boolean = False
     Public GameWin As Boolean = False
+    Public Millis As Integer = 0
+    Public Counter As Integer = 0
 End Module

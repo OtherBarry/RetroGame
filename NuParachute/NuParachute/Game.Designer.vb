@@ -24,7 +24,7 @@ Partial Class Game
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DeciSecond = New System.Windows.Forms.Timer(Me.components)
-        Me.Spawn = New System.Windows.Forms.Timer(Me.components)
+        Me.Milli = New System.Windows.Forms.Timer(Me.components)
         Me.Tick = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -42,9 +42,9 @@ Partial Class Game
         'DeciSecond
         '
         '
-        'Spawn
+        'Milli
         '
-        Me.Spawn.Interval = 500
+        Me.Milli.Interval = 1
         '
         'Tick
         '
@@ -163,7 +163,7 @@ Partial Class Game
 
     End Sub
     Friend WithEvents DeciSecond As System.Windows.Forms.Timer
-    Friend WithEvents Spawn As System.Windows.Forms.Timer
+    Friend WithEvents Milli As System.Windows.Forms.Timer
     Friend WithEvents Tick As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox

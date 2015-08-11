@@ -7,7 +7,6 @@
         Lives = 3
         GameScroll = True
         Collision = False
-        Game.txtPaused.Text = "Paused"
         GameWin = False
         Pause()
     End Sub
@@ -15,16 +14,20 @@
         If Paused = False Then
             Game.DeciSecond.Enabled = False
             Game.Tick.Enabled = False
-            Game.Spawn.Enabled = False
+            Game.Milli.Enabled = False
             Paused = True
             Game.txtPaused.Visible = True
             If GameWin = True Then
                 Game.txtPaused.Text = "You Win"
+            ElseIf Collision = True
+                Game.txtPaused.Text = "You Lose"
+            Else
+                Game.txtPaused.Text = "Paused"
             End If
         Else
             Game.DeciSecond.Enabled = True
             Game.Tick.Enabled = True
-            Game.Spawn.Enabled = True
+            Game.Milli.Enabled = True
             Paused = False
             Game.txtPaused.Visible = False
         End If
@@ -65,5 +68,9 @@
         If GameScroll = False Then
             Game.Character.Top += CharacterDropSpeed
         End If
+    End Sub
+    Public Sub Collide()
+
+
     End Sub
 End Module

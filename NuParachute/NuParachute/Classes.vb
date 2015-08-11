@@ -10,6 +10,7 @@
         Private Height As Integer
         Private Width As Integer
         Private FromLeft As Boolean = True
+        Private Exist As Boolean = True
         'End Variables
 
         Public Sub New(Type)
@@ -45,19 +46,26 @@
         End Sub
 
         Public Sub CollisionDetect()
-            If FromLeft = True Then
-                If (Game.Character.Left + Game.Character.Width) > Left And Game.Character.Left < (Left + Width) And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
-                    Collision = True
-                    Lives -= 1
-                    Game.Character.Left = (Game.Width / 2) - (Game.Character.Width / 2)
-                End If
-            Else
-                If (Game.Character.Left + Game.Character.Width) > (Left + Width) And Game.Character.Left < Left And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
-                    Collision = True
-                    Lives -= 1
-                    Game.Character.Left = (Game.Width / 2) - (Game.Character.Width / 2)
+            If Exist = True Then
+                If FromLeft = True Then
+                    If (Game.Character.Left + Game.Character.Width) > Left And Game.Character.Left < (Left + Width) And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
+                        Collision = True
+                        Lives -= 1
+                        Width = 0
+                        Height = 0
+                        Exist = False
+                    End If
+                Else
+                    If (Game.Character.Left + Game.Character.Width) > (Left + Width) And Game.Character.Left < Left And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
+                        Collision = True
+                        Lives -= 1
+                        Width = 0
+                        Height = 0
+                        Exist = False
+                    End If
                 End If
             End If
+
             If Game.Character.Top >= Game.Height - 64 - Game.Character.Height Then
                 GameWin = True
             End If
