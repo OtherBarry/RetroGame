@@ -47,30 +47,33 @@
             Else
                 Left -= HorizontalSpeed
             End If
+            CollisionDetect()
         End Sub
 
         Public Sub CollisionDetect()
-            If Exist = True Then 'Ensures that the enemy in question is classified as existing
+            If Exist = True And Player.Invincible = False Then 'Ensures that the enemy in question is classified as existing
                 If FromLeft = True Then 'due to the ghetto image flipping, we have to have 2 very similar lines of code
-                    If (Game.Character.Left + Game.Character.Width) > Left And Game.Character.Left < (Left + Width) And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
+                    If (Player.Left + Player.Width) > Left And Player.Left < (Left + Width) And (Player.Top + Player.Height) > Top And Player.Top < (Top + Height) Then
                         Collision = True
                         Lives -= 1
                         Width = 0
                         Height = 0
                         Exist = False
+                        Player.Invincible = True
                     End If
                 Else
-                    If (Game.Character.Left + Game.Character.Width) > (Left + Width) And Game.Character.Left < Left And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
+                    If (Player.Left + Player.Width) > (Left + Width) And Player.Left < Left And (Player.Top + Player.Height) > Top And Player.Top < (Top + Height) Then
                         Collision = True
                         Lives -= 1
                         Width = 0
                         Height = 0
                         Exist = False
+                        Player.Invincible = True
                     End If
                 End If
             End If
 
-            If Game.Character.Top >= Game.Height - 64 - Game.Character.Height Then 'If your dude hits the bottom you win
+            If Player.Top >= Game.Height - 64 - Player.Height Then 'If your dude hits the bottom you win
                 GameWin = True
             End If
         End Sub
@@ -142,9 +145,6 @@
             If DeciSeconds Mod 50 = 0 Then
                 Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
                 Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
-                If Speed = True Then
-                    Speed = False
-                End If
                 If Exist = False Then
                     Width = 50
                     Height = 50
@@ -153,14 +153,15 @@
             If GameScroll = True Then
                 Top -= ScrollSpeed
             End If
+            CollisionDetect()
         End Sub
 
         Public Sub CollisionDetect()
-            If (Game.Character.Left + Game.Character.Width) > Left And Game.Character.Left < (Left + Width) And (Game.Character.Top + Game.Character.Height) > Top And Game.Character.Top < (Top + Height) Then
+            If (Player.Left + Player.Width) > Left And Player.Left < (Left + Width) And (Player.Top + Player.Height) > Top And Player.Top < (Top + Height) Then
                 Width = 0
                 Height = 0
                 Exist = False
-                Speed = True
+                Player.Speed = True
             End If
         End Sub
 
@@ -170,37 +171,82 @@
     End Class
 
     Public Class Parachuter
-        Private Image As Image
-        Private Top As Integer
-        Private Left As Integer
-        Private Height As Integer
-        Private Width As Integer
-        Private HorizontalSpeed As Integer
+        Public Image As Image
+        Public Top As Integer
+        Public Left As Integer
+        Public Height As Integer
+        Public Width As Integer
+        Public HorizontalSpeed As Integer = 3
+        Public Invincible As Boolean = False
+        Private InvincTime As Integer = 0
+        Public Speed As Boolean = False
+        Private SpeedTime As Integer = 0
+        Private Visible As Boolean = True
         Public Sub New()
             Image = My.Resources.ParachuterSmall
             Height = Image.Height * 3
             Width = Image.Width * 3
             Top = 80
-            Left = (Game.Width / 2) / (Width / 2)
+            Left = (Game.Width / 2) - (Width / 2)
         End Sub
         Public Sub Move()
             If GetKeyState(65) < 0 OrElse GetKeyState(37) < 0 Then
-                If Game.Character.Left > 0 Then
-                    Game.Character.Left -= CharacterMoveSpeed
+                If Left > 0 Then
+                    Left -= HorizontalSpeed
                 End If
             End If
             If GetKeyState(68) < 0 OrElse GetKeyState(39) < 0 Then
-                If Game.Character.Left < (Game.Width - Game.Character.Width) Then
-                    Game.Character.Left += CharacterMoveSpeed
+                If Left < (Game.Width - Width) Then
+                    Left += HorizontalSpeed
                 End If
             End If
             If GameScroll = False Then
-                Game.Character.Top += ScrollSpeed
+                Top += ScrollSpeed
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs)
             e.Graphics.DrawImage(Image, Left, Top, Width, Height)
         End Sub
+        Public Sub Reset()
+            Top = 80
+            Left = (Game.Width / 2) - (Width / 2)
+        End Sub
+        Public Sub Time()
+            If Invincible = True Then
+                InvincTime += 1
+                If Visible = True Then
+                    Visible = False
+                Else
+                    Visible = True
+                End If
+                If InvincTime > 15 Then
+                    InvincTime = 0
+                    Invincible = False
+                    Visible = True
+                End If
+            Else
+                Image = My.Resources.ParachuterSmall
+            End If
+            If Speed = True Then
+                HorizontalSpeed = 6
+                SpeedTime += 1
+                If SpeedTime > 30 Then
+                    SpeedTime = 0
+                    Speed = False
+                End If
+            Else
+                HorizontalSpeed = 3
+            End If
+            If Visible = True Then
+                Height = Image.Height * 3
+                Width = Image.Width * 3
+            Else
+                Height = 0
+                Width = 0
+            End If
+        End Sub
+
+
     End Class
 
 End Module

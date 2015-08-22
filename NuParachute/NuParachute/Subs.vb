@@ -2,8 +2,7 @@
     Public Sub Reset()
         Enemies.Clear()
         DeciSeconds = 0
-        Game.Character.Top = 75
-        Game.Character.Left = 310
+        Player.Reset()
         Lives = 3
         GameScroll = True
         Collision = False
@@ -52,26 +51,5 @@
         End If
         Main.lblDifficulty.Text = "Current Difficulty = " + DiffString
         Main.lblDifficulty.Left = (Main.Width / 2) - (Main.lblDifficulty.Width / 2)
-    End Sub
-
-    Public Sub CharacterMove()
-        If Speed = True Then
-            CharacterMoveSpeed = 6
-        Else
-            CharacterMoveSpeed = 3
-        End If
-        If GetKeyState(65) < 0 OrElse GetKeyState(37) < 0 Then
-            If Game.Character.Left > 0 Then
-                Game.Character.Left -= CharacterMoveSpeed
-            End If
-        End If
-        If GetKeyState(68) < 0 OrElse GetKeyState(39) < 0 Then
-            If Game.Character.Left < (Game.Width - Game.Character.Width) Then
-                Game.Character.Left += CharacterMoveSpeed
-            End If
-        End If
-        If GameScroll = False Then
-            Game.Character.Top += ScrollSpeed
-        End If
     End Sub
 End Module

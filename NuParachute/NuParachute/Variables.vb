@@ -18,5 +18,4 @@
     Public GameWin As Boolean = False
     Public Millis As Integer = 0
     Public Counter As Integer = 0
-    Public Speed As Boolean = False
 End Module
