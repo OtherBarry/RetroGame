@@ -19,8 +19,11 @@
     Private Sub DeciSecond_Tick(sender As Object, e As EventArgs) Handles DeciSecond.Tick
         DeciSeconds += 1
         Backgrounds.Add(New Background("Cloud"))
-        If DeciSeconds Mod (Difficulty * 5) = 0 Then
+        If DeciSeconds Mod (Difficulty * 6) = 0 Then
             Enemies.Add(New Enemy("Helicopter"))
+        End If
+        If DeciSeconds Mod (Difficulty * 30) = 0 Then
+            Enemies.Add(New Enemy("Plane"))
         End If
         If DeciSeconds / 10 >= Seconds - 8.4 Then
             GameScroll = False
@@ -32,11 +35,11 @@
         For Each bg As Background In Backgrounds
             bg.Draw(e)
         Next
-        For Each en As Enemy In Enemies
-            en.Draw(e)
-        Next
         For Each pu As Powerup In Powerups
             pu.Draw(e)
+        Next
+        For Each en As Enemy In Enemies
+            en.Draw(e)
         Next
         Player.Draw(e)
         LabelUpdate()

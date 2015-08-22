@@ -22,20 +22,24 @@
                 Image = My.Resources.HelicopterSmall
                 Height = Image.Height * 3
                 Width = Image.Width * 3
-                Top = CInt(Math.Floor(((Game.Height - 64 - Height) - (64 + Height) + 1) * Rnd())) + (64 + Height)
                 HorizontalSpeed = 4
-                If random = 2 Then
-                    FromLeft = False
-                End If
-                If FromLeft = True Then
-                    Left = 0 - Width
-                Else
-                    Left = Game.Width + Width
-                    Width = -Width 'This is the ghetto way of flipping images 
-                End If
-                'Once we have more enemies, there will be many more elseIf's here
+            ElseIf Type = "Plane"
+                Image = My.Resources.PlaneSmall
+                Height = 38
+                Width = 80
+                HorizontalSpeed = 8
             End If
-
+            Randomize()
+            Top = CInt(Math.Floor(((Game.Height - 64 - Height) - (64 + Height) + 1) * Rnd())) + (64 + Height)
+            If random = 2 Then
+                FromLeft = False
+            End If
+            If FromLeft = True Then
+                Left = 0 - Width
+            Else
+                Left = Game.Width + Width
+                Width = -Width 'This is the ghetto way of flipping images 
+            End If
         End Sub
 
         Public Sub Move()
@@ -136,24 +140,29 @@
                 Image = My.Resources.Speed
                 Width = 50
                 Height = 50
-                Top = 0
-                Left = 0
+                Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
+                Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
             End If
         End Sub
 
         Public Sub Move()
-            If DeciSeconds Mod 50 = 0 Then
-                Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
-                Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
-                If Exist = False Then
-                    Width = 50
-                    Height = 50
-                End If
-            End If
             If GameScroll = True Then
                 Top -= ScrollSpeed
             End If
             CollisionDetect()
+            If Exist = True And Top < 64 - Height Then
+                Respawn()
+            ElseIf Exist = False And Player.Speed = False Then
+                Exist = True
+                Respawn()
+            End If
+        End Sub
+
+        Public Sub Respawn()
+            Width = 50
+            Height = 50
+            Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
+            Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
         End Sub
 
         Public Sub CollisionDetect()
