@@ -49,7 +49,7 @@
         Else
             DiffString = "Medium"
         End If
-        Main.lblDifficulty.Text = "Current Difficulty = " + DiffString
-        Main.lblDifficulty.Left = (Main.Width / 2) - (Main.lblDifficulty.Width / 2)
+        playMenuForm.lblDifficulty.Text = "Current Difficulty = " + DiffString
+        playMenuForm.lblDifficulty.Left = (Main.Width / 2) - (playMenuForm.lblDifficulty.Width / 2)
     End Sub
 End Module
