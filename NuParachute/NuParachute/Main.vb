@@ -1,7 +1,7 @@
 ﻿Public Class Main
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Game.Show()
+        playMenuForm.Show()
         Me.Hide()
     End Sub
 
@@ -9,22 +9,20 @@
 
     End Sub
 
-    Private Sub btnIncrease_Click(sender As Object, e As EventArgs) Handles btnIncrease.Click
-        If Difficulty > 1 Then
-            Difficulty -= 1
-        End If
-        LabelUpdate()
-    End Sub
 
-    Private Sub btnDecrease_Click(sender As Object, e As EventArgs) Handles btnDecrease.Click
-        If Difficulty < 5 Then
-            Difficulty += 1
-        End If
-        LabelUpdate()
-    End Sub
 
     Private Sub btnOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
         Options.Show()
         Me.Hide()
     End Sub
+
+    Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles exitBtn.Click
+        Dim message = "Do you want to exit?"
+        Dim style = MsgBoxStyle.YesNo
+        Dim response = MsgBox(message, style)
+        If response = MsgBoxResult.Yes Then
+            End
+        End If
+    End Sub
+
 End Class
