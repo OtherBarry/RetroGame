@@ -18,4 +18,6 @@
     Public GameWin As Boolean = False
     Public Millis As Integer = 0
     Public Counter As Integer = 0
+    Public pInvincible As Boolean = False
+    Public DrawHitboxes As Boolean = True
 End Module

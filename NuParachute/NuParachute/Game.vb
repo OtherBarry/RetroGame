@@ -3,6 +3,8 @@
         Enemies.Add(New Enemy("Helicopter"))
         Backgrounds.Add(New Background("Cloud"))
         Powerups.Add(New Powerup("Speed"))
+        Powerups.Add(New Powerup("Invincibility"))
+        Powerups.Add(New Powerup("Freeze"))
         DeciSecond.Enabled = True
         Tick.Enabled = True
         Milli.Enabled = True
@@ -56,7 +58,7 @@
             pu.Move()
         Next
         Player.Move()
-        Invalidate() 'Runs the .Paint Sub
+        Invalidate()
         If GameWin = True Then
             Pause()
         End If
@@ -65,14 +67,7 @@
         End If
     End Sub
 
-    Private Sub Milli_Tick(sender As Object, e As EventArgs) Handles Milli.Tick
-        Millis += 1
-        'This bit runs the loss of life animation
-
-    End Sub
-
     Private Sub Game_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
-        'Autopauses the game on alt-tab
         DeciSecond.Enabled = False
         Milli.Enabled = False
         Tick.Enabled = False

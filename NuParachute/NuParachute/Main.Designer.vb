@@ -26,6 +26,7 @@ Partial Class Main
         Me.btnOptions = New System.Windows.Forms.Button()
         Me.title = New System.Windows.Forms.Label()
         Me.exitBtn = New System.Windows.Forms.Button()
+        Me.btnTutorial = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -65,12 +66,22 @@ Partial Class Main
         Me.exitBtn.Text = "Exit"
         Me.exitBtn.UseVisualStyleBackColor = True
         '
+        'btnTutorial
+        '
+        Me.btnTutorial.Location = New System.Drawing.Point(251, 360)
+        Me.btnTutorial.Name = "btnTutorial"
+        Me.btnTutorial.Size = New System.Drawing.Size(100, 40)
+        Me.btnTutorial.TabIndex = 8
+        Me.btnTutorial.Text = "Tutorial"
+        Me.btnTutorial.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(624, 729)
+        Me.Controls.Add(Me.btnTutorial)
         Me.Controls.Add(Me.exitBtn)
         Me.Controls.Add(Me.title)
         Me.Controls.Add(Me.btnOptions)
@@ -86,4 +97,5 @@ Partial Class Main
     Friend WithEvents btnOptions As System.Windows.Forms.Button
     Friend WithEvents title As Label
     Friend WithEvents exitBtn As Button
+    Friend WithEvents btnTutorial As System.Windows.Forms.Button
 End Class

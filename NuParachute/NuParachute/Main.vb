@@ -25,4 +25,8 @@
         End If
     End Sub
 
+    Private Sub btnTutorial_Click(sender As Object, e As EventArgs) Handles btnTutorial.Click
+        Me.Hide()
+        tutorialMenu.Show()
+    End Sub
 End Class
