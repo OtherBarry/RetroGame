@@ -10,8 +10,8 @@
         Private Exist As Boolean = True
         Private Type As String
         Private random As Integer
-        Public Sub New(ByVal Type As String)
-            Type = Type
+        Public Sub New(ByVal Kind As String)
+            Type = Kind
             If Type = "Helicopter" Then
                 Image = My.Resources.HelicopterSmall
                 Height = Image.Height * 3
@@ -19,8 +19,8 @@
                 HorizontalSpeed = 4
             ElseIf Type = "Plane"
                 Image = My.Resources.PlaneSmall
-                Height = 38
-                Width = 80
+                Height = 36
+                Width = 75
                 HorizontalSpeed = 8
             End If
             Randomize()
@@ -49,35 +49,61 @@
             CollisionDetect()
         End Sub
         Private Sub CollisionDetect()
-            If Exist = True And Player.Invincible = False Then
-                If FromLeft = True Then
-                    If Player.Hitbox.IntersectsWith(New Rectangle(Left + 33, Top, Width - 33, Height)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left, Top + 14, 33, 15)) Then
-                        Collision = True
+            If Exist = True Then
+                If Type = "Helicopter" Then
+                    If FromLeft = True Then
+                        If Player.Hitbox.IntersectsWith(New Rectangle(Left + 33, Top, Width - 33, Height)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left, Top + 14, 33, 15)) Then
+                            Collide()
+                        End If
+                    Else
+                        If Player.Hitbox.IntersectsWith(New Rectangle(Left + Width, Top, -Width - 33, Height)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left - 33, Top + 14, 33, 15)) Then
+                            Collide()
+                        End If
                     End If
-                Else
-                    If Player.Hitbox.IntersectsWith(New Rectangle(Left - 66, Top, 33, Height)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left - 33, Top + 14, 33, 15)) Then
-                        Collision = True
+                ElseIf Type = "Plane"
+                    If FromLeft = True Then
+                        If Player.Hitbox.IntersectsWith(New Rectangle(Left, Top + 12, Width - 6, 12)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left + 3, Top, 12, 30)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left + 18, Top + 24, 27, 12)) Then
+                            Collide()
+                        End If
+                    Else
+                        If Player.Hitbox.IntersectsWith(New Rectangle(Left + Width + 6, Top + 12, -Width - 6, 12)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left + Width + 60, Top, 12, 30)) Or Player.Hitbox.IntersectsWith(New Rectangle(Left + Width + 30, Top + 24, 27, 12)) Then
+                            Collide()
+                        End If
                     End If
                 End If
-                If Collision = True Then
-                    Lives -= 1
-                    Exist = False
-                    Player.Invincible = True
-                    Collision = False
-                End If
+            End If
+        End Sub
+        Private Sub Collide()
+            If Player.Invincible = False Then
+                Lives -= 1
+                Exist = False
+                Player.Invincible = True
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs) 'This sub actually draws the enemies
             If Exist = True Then
                 e.Graphics.DrawImage(Image, Left, Top, Width, Height)
                 If DrawHitboxes = True Then
-                    If FromLeft = True Then
-                        e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + 33, Top, Width - 33, Height))
-                        e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left, Top + 14, 33, 15))
-                    Else
-                        e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left - 66, Top, 33, Height))
-                        e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left - 33, Top + 14, 33, 15))
+                    If Type = "Helicopter" Then
+                        If FromLeft = True Then
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + 33, Top, Width - 33, Height))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left, Top + 14, 33, 15))
+                        Else
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + Width, Top, -Width - 33, Height))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left - 33, Top + 14, 33, 15))
+                        End If
+                    ElseIf Type = "Plane"
+                        If FromLeft = True Then
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left, Top + 12, Width - 6, 12))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + 3, Top, 12, 30))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + 18, Top + 24, 27, 12))
+                        Else
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + Width + 6, Top + 12, -Width - 6, 12))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + Width + 60, Top, 12, 30))
+                            e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + Width + 30, Top + 24, 27, 12))
+                        End If
                     End If
+
                 End If
             End If
         End Sub
@@ -87,12 +113,18 @@
         Private Image As Image
         Private Top As Integer
         Private Left As Integer
-        Private Height As Integer
-        Private Width As Integer
+        Private Height As Integer = 20
+        Private Width As Integer = 40
         Private Exist As Boolean = True
         Private random As Integer
+        Private Test As Point
+        Private Test2 As Size
         'End variables
         Public Sub New(ByVal Type As String)
+            Test.X = 20
+            Test.Y = 20
+            Test2.Height = 20
+            Test2.Width = 20
             If Type = "Cloud" Then
                 Image = My.Resources.pixelCloudV2
                 Top = Game.Height + Height - Game.PictureBox2.Height
@@ -166,7 +198,6 @@
                     Player.Speed = True
                 ElseIf Type = "Invincibility" Then
                     Player.Invincible = True
-                    pInvincible = True
                 ElseIf Type = "Freeze" Then
                     Player.Freeze = True
                 End If
@@ -226,7 +257,12 @@
         End Sub
         Private Sub CollisionDetect()
             If Hitbox.IntersectsWith(New Rectangle(Game.PictureBox2.Left, Game.PictureBox2.Top, Game.PictureBox2.Width, Game.PictureBox2.Height)) Then
-                GameWin = True
+                If GameMode = "Arcade" Then
+                    GameState = "Win"
+                ElseIf GameMode = "Campaign"
+                    LevelUp()
+                    Level += 1
+                End If
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs)
@@ -244,21 +280,13 @@
                 Else
                     Visible = True
                 End If
-                If pInvincible = True Then
-                    If InvincTime > 30 Then
-                        InvincTime = 0
-                        Invincible = False
-                        Visible = True
-                    End If
-                Else
-                    If InvincTime > 15 Then
-                        InvincTime = 0
-                        Invincible = False
-                        Visible = True
-                    End If
+                If InvincTime > 20 Then
+                    InvincTime = 0
+                    Invincible = False
+                    Visible = True
                 End If
             Else
-                Image = My.Resources.ParachuterSmall
+                Visible = True
             End If
             If Speed = True Then
                 HorizontalSpeed = 6

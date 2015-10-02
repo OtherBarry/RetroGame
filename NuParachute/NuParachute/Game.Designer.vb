@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Game
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,10 @@ Partial Class Game
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DeciSecond = New System.Windows.Forms.Timer(Me.components)
-        Me.Milli = New System.Windows.Forms.Timer(Me.components)
         Me.Tick = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -33,16 +32,13 @@ Partial Class Game
         Me.txtLevel = New System.Windows.Forms.Label()
         Me.txtTime = New System.Windows.Forms.Label()
         Me.txtPaused = New System.Windows.Forms.Label()
+        Me.EnemySpawn = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DeciSecond
         '
-        '
-        'Milli
-        '
-        Me.Milli.Interval = 1
         '
         'Tick
         '
@@ -125,6 +121,9 @@ Partial Class Game
         Me.txtPaused.Text = "Paused"
         Me.txtPaused.Visible = False
         '
+        'EnemySpawn
+        '
+        '
         'Game
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -149,7 +148,6 @@ Partial Class Game
 
     End Sub
     Friend WithEvents DeciSecond As System.Windows.Forms.Timer
-    Friend WithEvents Milli As System.Windows.Forms.Timer
     Friend WithEvents Tick As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
@@ -158,4 +156,5 @@ Partial Class Game
     Friend WithEvents txtLevel As Label
     Friend WithEvents txtTime As Label
     Friend WithEvents txtPaused As Label
+    Friend WithEvents EnemySpawn As Timer
 End Class
