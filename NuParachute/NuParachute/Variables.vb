@@ -15,4 +15,5 @@
     Public GameMode As String = "Endless"
     Public Level As Integer = 1
     Public ESCounter As Integer = 0
+    Public LiveArray() As PictureBox = {Game.Live0, Game.Live1, Game.Live2, Game.Live3, Game.Live4, Game.Live5, Game.Live6, Game.Live7, Game.Live8, Game.Live9}
 End Module

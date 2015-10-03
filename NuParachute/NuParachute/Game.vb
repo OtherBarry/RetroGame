@@ -12,7 +12,6 @@
         DoubleBuffered = True
         DifficultyChange()
     End Sub
-
     Private Sub Game_KeyPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.P Then
             If GameState = "Active" Then
@@ -23,12 +22,11 @@
             StateCheck()
         End If
         If e.KeyCode = Keys.Escape Then
-            If GameState = "Win" Or GameState = "Lose" Then
+            If GameState = "Win" Or GameState = "Lose" Or GameState = "Paused" Then
                 Reset()
             End If
         End If
     End Sub
-
     Private Sub EnemySpawn_Tick(sender As Object, e As EventArgs) Handles EnemySpawn.Tick
         ESCounter += 1
         If ESCounter Mod 5 = 0 Then
@@ -37,7 +35,6 @@
             Enemies.Add(New Enemy("Helicopter"))
         End If
     End Sub
-
     Private Sub DeciSecond_Tick(sender As Object, e As EventArgs) Handles DeciSecond.Tick
         DeciSeconds += 1
         Backgrounds.Add(New Background("Cloud"))
@@ -48,8 +45,8 @@
         End If
         Player.Time()
     End Sub
-
     Private Sub Draw(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        ColourShift()
         For Each bg As Background In Backgrounds
             bg.Move()
             bg.Draw(e)
@@ -66,7 +63,6 @@
         Player.Draw(e)
         LabelUpdate()
     End Sub
-
     Private Sub Tick_Tick(sender As Object, e As EventArgs) Handles Tick.Tick
         Invalidate()
         If Lives = -1 Then
@@ -74,10 +70,13 @@
         End If
         StateCheck()
     End Sub
-
     Private Sub Game_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
         GameState = "Paused"
         StateCheck()
     End Sub
 
+    Private Sub txtTitle_Click(sender As Object, e As EventArgs) Handles txtTitle.Click
+        Me.Close()
+        Main.Show()
+    End Sub
 End Class

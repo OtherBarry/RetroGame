@@ -80,7 +80,7 @@
                 Player.Invincible = True
             End If
         End Sub
-        Public Sub Draw(e As PaintEventArgs) 'This sub actually draws the enemies
+        Public Sub Draw(e As PaintEventArgs)
             If Exist = True Then
                 e.Graphics.DrawImage(Image, Left, Top, Width, Height)
                 If DrawHitboxes = True Then
@@ -103,13 +103,11 @@
                             e.Graphics.DrawRectangle(Pens.Red, New Rectangle(Left + Width + 30, Top + 24, 27, 12))
                         End If
                     End If
-
                 End If
             End If
         End Sub
     End Class
     Public Class Background
-        'Start Variables
         Private Image As Image
         Private Top As Integer
         Private Left As Integer
@@ -117,14 +115,7 @@
         Private Width As Integer = 40
         Private Exist As Boolean = True
         Private random As Integer
-        Private Test As Point
-        Private Test2 As Size
-        'End variables
         Public Sub New(ByVal Type As String)
-            Test.X = 20
-            Test.Y = 20
-            Test2.Height = 20
-            Test2.Width = 20
             If Type = "Cloud" Then
                 Image = My.Resources.pixelCloudV2
                 Top = Game.Height + Height - Game.PictureBox2.Height
@@ -165,19 +156,18 @@
         Private Exist As Boolean = True
         Public Sub New(ByVal pType As String)
             Type = pType
-            If Type = "Speed" Then
-                Image = My.Resources.Speed
-                Width = 16
-                Height = 30
-            ElseIf Type = "Invincibility" Then
-                Image = My.Resources.invincibility
-                Width = 30
-                Height = 30
-            ElseIf Type = "Freeze" Then
-                Image = My.Resources.Freeze
-                Width = 30
-                Height = 30
-            End If
+            Width = 30
+            Select Case Type
+                Case "Speed"
+                    Image = My.Resources.Speed
+                    Width = 16
+                Case "Invincibility"
+                    Image = My.Resources.invincibility
+                Case "Freeze"
+                    Image = My.Resources.Freeze
+            End Select
+            Height = 30
+            Randomize()
             Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
             Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
         End Sub
@@ -188,6 +178,7 @@
             CollisionDetect()
         End Sub
         Public Sub Respawn()
+            Randomize()
             Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
             Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
         End Sub
@@ -245,7 +236,7 @@
                 End If
             End If
             If GetKeyState(68) < 0 OrElse GetKeyState(39) < 0 Then
-                If Left < (Game.Width - Width) Then
+                If Left < (Game.Width - 21) Then
                     Left += HorizontalSpeed
                 End If
             End If
@@ -267,6 +258,9 @@
         End Sub
         Public Sub Draw(e As PaintEventArgs)
             e.Graphics.DrawImage(Image, Left, Top, Width, Height)
+            If DrawHitboxes = True Then
+                e.Graphics.DrawRectangle(Pens.Red, Hitbox)
+            End If
         End Sub
         Public Sub Reset()
             Top = 80

@@ -45,6 +45,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HelicoptereSmall.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -145,6 +148,9 @@
     <EmbeddedResource Include="playMenuForm.resx">
       <DependentUpon>playMenuForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tutorial.resx">
+      <DependentUpon>Tutorial.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tutorialMenu.resx">
       <DependentUpon>tutorialMenu.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Freeze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelicoptereSmall.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

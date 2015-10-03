@@ -22,6 +22,7 @@ Partial Class tutorialMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(tutorialMenu))
         Me.enemyLbl = New System.Windows.Forms.Label()
         Me.enemyInfo = New System.Windows.Forms.RichTextBox()
         Me.leftEnemyBtn = New System.Windows.Forms.Button()
@@ -50,7 +51,7 @@ Partial Class tutorialMenu
         'enemyInfo
         '
         Me.enemyInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.enemyInfo.Font = New System.Drawing.Font("Myriad Web Pro Condensed", 21.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.enemyInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.enemyInfo.Location = New System.Drawing.Point(359, 264)
         Me.enemyInfo.Name = "enemyInfo"
         Me.enemyInfo.Size = New System.Drawing.Size(265, 227)
@@ -158,7 +159,9 @@ Partial Class tutorialMenu
         Me.Controls.Add(Me.enemyPic)
         Me.Controls.Add(Me.enemyLbl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "tutorialMenu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "tutorialMenu"
         CType(Me.pwrUpPic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.enemyPic, System.ComponentModel.ISupportInitialize).EndInit()
