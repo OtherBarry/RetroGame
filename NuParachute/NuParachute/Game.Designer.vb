@@ -28,7 +28,6 @@ Partial Class Game
         Me.Tick = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Character = New System.Windows.Forms.PictureBox()
         Me.txtLives = New System.Windows.Forms.Label()
         Me.txtTitle = New System.Windows.Forms.Label()
         Me.txtLevel = New System.Windows.Forms.Label()
@@ -36,7 +35,6 @@ Partial Class Game
         Me.txtPaused = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Character, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DeciSecond
@@ -67,16 +65,6 @@ Partial Class Game
         Me.PictureBox2.Size = New System.Drawing.Size(640, 64)
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
-        '
-        'Character
-        '
-        Me.Character.Image = Global.NuPrachute.My.Resources.Resources.ParachuterSmall
-        Me.Character.Location = New System.Drawing.Point(310, 75)
-        Me.Character.Name = "Character"
-        Me.Character.Size = New System.Drawing.Size(21, 36)
-        Me.Character.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Character.TabIndex = 2
-        Me.Character.TabStop = False
         '
         'txtLives
         '
@@ -148,7 +136,6 @@ Partial Class Game
         Me.Controls.Add(Me.txtLevel)
         Me.Controls.Add(Me.txtTitle)
         Me.Controls.Add(Me.txtLives)
-        Me.Controls.Add(Me.Character)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -157,7 +144,6 @@ Partial Class Game
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Character, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -167,7 +153,6 @@ Partial Class Game
     Friend WithEvents Tick As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents Character As System.Windows.Forms.PictureBox
     Friend WithEvents txtLives As Label
     Friend WithEvents txtTitle As Label
     Friend WithEvents txtLevel As Label
