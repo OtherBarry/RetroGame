@@ -22,20 +22,23 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
+        Me.playBtn = New System.Windows.Forms.Button()
         Me.btnOptions = New System.Windows.Forms.Button()
         Me.title = New System.Windows.Forms.Label()
         Me.exitBtn = New System.Windows.Forms.Button()
+        Me.btnTutorial = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Button1
+        'playBtn
         '
-        Me.Button1.Location = New System.Drawing.Point(251, 268)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 40)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Play"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.playBtn.Font = New System.Drawing.Font("Segoe Print", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.playBtn.Location = New System.Drawing.Point(251, 157)
+        Me.playBtn.Name = "playBtn"
+        Me.playBtn.Size = New System.Drawing.Size(100, 40)
+        Me.playBtn.TabIndex = 0
+        Me.playBtn.Text = "Play"
+        Me.playBtn.UseVisualStyleBackColor = True
         '
         'btnOptions
         '
@@ -65,25 +68,38 @@ Partial Class Main
         Me.exitBtn.Text = "Exit"
         Me.exitBtn.UseVisualStyleBackColor = True
         '
+        'btnTutorial
+        '
+        Me.btnTutorial.Location = New System.Drawing.Point(251, 360)
+        Me.btnTutorial.Name = "btnTutorial"
+        Me.btnTutorial.Size = New System.Drawing.Size(100, 40)
+        Me.btnTutorial.TabIndex = 8
+        Me.btnTutorial.Text = "Tutorial"
+        Me.btnTutorial.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(624, 729)
+        Me.Controls.Add(Me.btnTutorial)
         Me.Controls.Add(Me.exitBtn)
         Me.Controls.Add(Me.title)
         Me.Controls.Add(Me.btnOptions)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.playBtn)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents playBtn As System.Windows.Forms.Button
     Friend WithEvents btnOptions As System.Windows.Forms.Button
     Friend WithEvents title As Label
     Friend WithEvents exitBtn As Button
+    Friend WithEvents btnTutorial As System.Windows.Forms.Button
 End Class

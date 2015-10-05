@@ -124,6 +124,9 @@
   <data name="ParachuterSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\parachutersmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="invincibility" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\invincibility.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pixelCloudV2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixelcloudv2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,5 +138,8 @@
   </data>
   <data name="PlaneSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlaneSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Freeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Freeze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

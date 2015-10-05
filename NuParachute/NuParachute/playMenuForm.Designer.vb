@@ -22,6 +22,7 @@ Partial Class playMenuForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(playMenuForm))
         Me.campaignBox = New System.Windows.Forms.TextBox()
         Me.arcadeBox = New System.Windows.Forms.TextBox()
         Me.endlessBox = New System.Windows.Forms.TextBox()
@@ -188,7 +189,9 @@ Partial Class playMenuForm
         Me.Controls.Add(Me.arcadeBox)
         Me.Controls.Add(Me.campaignBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "playMenuForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "playMenuForm"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
