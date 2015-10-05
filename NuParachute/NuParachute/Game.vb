@@ -16,7 +16,7 @@
         If e.KeyCode = Keys.P Then
             If GameState = "Active" Then
                 GameState = "Paused"
-            Else
+            ElseIf GameState = "Paused"
                 GameState = "Active"
             End If
             StateCheck()
@@ -39,7 +39,7 @@
         DeciSeconds += 1
         Backgrounds.Add(New Background("Cloud"))
         If GameMode = "Arcade" Or GameMode = "Campaign" Then
-            If DeciSeconds / 10 >= Seconds - 8.4 Then
+            If DeciSeconds / 10 >= Seconds - (16.8 / ScrollSpeed) Then
                 GameScroll = False
             End If
         End If

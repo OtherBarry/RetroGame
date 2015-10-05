@@ -97,5 +97,4 @@
         End If
         Game.BackColor = Color.FromArgb(red, green, blue)
     End Sub
-
 End Module
