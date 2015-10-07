@@ -10,7 +10,7 @@
         btnHome.FlatAppearance.MouseOverBackColor = Color.LightBlue
         btnHome.BackColor = Color.Transparent
     End Sub
-    Private Sub disableLightningPwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableLightningPwr.CheckedChanged
+    Private Sub CheckedChanged(sender As Object, e As EventArgs) Handles disableLightningPwr.CheckedChanged, disableInvinciblePwr.CheckedChanged, disableTimePwr.CheckedChanged, muteOption.CheckedChanged
         If disableLightningPwr.Checked = True Then
             speedActive = False
         Else
@@ -38,39 +38,5 @@
         gameLengthLbl.FlatAppearance.MouseDownBackColor = Color.DarkBlue
         gameLengthLbl.FlatAppearance.MouseOverBackColor = Color.LightBlue
         gameLengthLbl.BackColor = Color.Transparent
-    End Sub
-    Private Sub disableTimePwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableTimePwr.CheckedChanged
-        If disableLightningPwr.Checked = True Then
-            speedActive = False
-        Else
-            speedActive = True
-        End If
-        If disableTimePwr.Checked = True Then
-            freezeActive = False
-        Else
-            freezeActive = True
-        End If
-        If disableInvinciblePwr.Checked = True Then
-            invincibleActive = False
-        Else
-            invincibleActive = True
-        End If
-    End Sub
-    Private Sub disableInvinciblePwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableInvinciblePwr.CheckedChanged
-        If disableLightningPwr.Checked = True Then
-            speedActive = False
-        Else
-            speedActive = True
-        End If
-        If disableTimePwr.Checked = True Then
-            freezeActive = False
-        Else
-            freezeActive = True
-        End If
-        If disableInvinciblePwr.Checked = True Then
-            invincibleActive = False
-        Else
-            invincibleActive = True
-        End If
     End Sub
 End Class

@@ -229,8 +229,8 @@
         Public Hitbox As New Rectangle
         Public Sub New()
             Image = My.Resources.ParachuterSmall
-            Height = Image.Height * 3
-            Width = Image.Width * 3
+            Height = Image.Height
+            Width = Image.Width
             Top = 80
             Left = (Game.Width / 2) - (Width / 2)
             Hitbox = New Rectangle(Left, Top, Width, Height)
@@ -258,6 +258,7 @@
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs)
+            Image = Skins(parachuteNumber, shirtNumber)
             e.Graphics.DrawImage(Image, Left, Top, Width, Height)
             If DrawHitboxes = True Then
                 e.Graphics.DrawRectangle(Pens.Red, Hitbox)
@@ -301,8 +302,8 @@
                 End If
             End If
             If Visible = True Then
-                Height = Image.Height * 3
-                Width = Image.Width * 3
+                Height = Image.Height
+                Width = Image.Width
             Else
                 Height = 0
                 Width = 0

@@ -20,4 +20,12 @@
     Public freezeActive As Boolean = True
     Public invincibleActive As Boolean = True
     Public audioActive As Boolean = True
+    Public shirtNumber As Integer = 0
+    Public parachuteNumber As Integer = 3
+    Public Skins(,) As Image = {{My.Resources.cc, My.Resources.cp, My.Resources.cr, My.Resources.cw, My.Resources.cy},
+                                {My.Resources.pc, My.Resources.pp, My.Resources.pr, My.Resources.pw, My.Resources.py},
+                                {My.Resources.rc, My.Resources.rp, My.Resources.rr, My.Resources.rw, My.Resources.ry},
+                                {My.Resources.wc, My.Resources.wp, My.Resources.wr, My.Resources.ww, My.Resources.wy},
+                                {My.Resources.yc, My.Resources.yp, My.Resources.yr, My.Resources.yw, My.Resources.yy}}
+
 End Module

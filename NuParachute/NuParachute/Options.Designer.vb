@@ -41,9 +41,9 @@ Partial Class Options
         Me.btnHome.BackgroundImage = Global.NuPrachute.My.Resources.Resources.Cloud
         Me.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnHome.Font = New System.Drawing.Font("Segoe Print", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHome.Location = New System.Drawing.Point(509, 12)
+        Me.btnHome.Location = New System.Drawing.Point(421, 138)
         Me.btnHome.Name = "btnHome"
-        Me.btnHome.Size = New System.Drawing.Size(118, 54)
+        Me.btnHome.Size = New System.Drawing.Size(154, 70)
         Me.btnHome.TabIndex = 0
         Me.btnHome.Text = "Home"
         Me.btnHome.UseVisualStyleBackColor = False
@@ -53,7 +53,7 @@ Partial Class Options
         Me.numLength.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.numLength.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.numLength.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.numLength.Location = New System.Drawing.Point(282, 35)
+        Me.numLength.Location = New System.Drawing.Point(189, 12)
         Me.numLength.Name = "numLength"
         Me.numLength.Size = New System.Drawing.Size(72, 51)
         Me.numLength.TabIndex = 5
@@ -65,10 +65,10 @@ Partial Class Options
         Me.muteOption.AutoSize = True
         Me.muteOption.BackgroundImage = Global.NuPrachute.My.Resources.Resources.Cloud
         Me.muteOption.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.muteOption.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.muteOption.Location = New System.Drawing.Point(12, 162)
+        Me.muteOption.Font = New System.Drawing.Font("Segoe Print", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.muteOption.Location = New System.Drawing.Point(421, 10)
         Me.muteOption.Name = "muteOption"
-        Me.muteOption.Size = New System.Drawing.Size(206, 51)
+        Me.muteOption.Size = New System.Drawing.Size(154, 37)
         Me.muteOption.TabIndex = 12
         Me.muteOption.Text = "Mute audio?"
         Me.muteOption.UseVisualStyleBackColor = True
@@ -78,10 +78,10 @@ Partial Class Options
         Me.disableLightningPwr.AutoSize = True
         Me.disableLightningPwr.BackgroundImage = Global.NuPrachute.My.Resources.Resources.Cloud
         Me.disableLightningPwr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.disableLightningPwr.Font = New System.Drawing.Font("Segoe Print", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.disableLightningPwr.Location = New System.Drawing.Point(12, 312)
+        Me.disableLightningPwr.Font = New System.Drawing.Font("Segoe Print", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.disableLightningPwr.Location = New System.Drawing.Point(12, 100)
         Me.disableLightningPwr.Name = "disableLightningPwr"
-        Me.disableLightningPwr.Size = New System.Drawing.Size(365, 46)
+        Me.disableLightningPwr.Size = New System.Drawing.Size(249, 32)
         Me.disableLightningPwr.TabIndex = 13
         Me.disableLightningPwr.Text = "Disable lightning powerup?"
         Me.disableLightningPwr.UseVisualStyleBackColor = True
@@ -94,7 +94,7 @@ Partial Class Options
         Me.gameLengthLbl.Font = New System.Drawing.Font("Segoe Print", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gameLengthLbl.Location = New System.Drawing.Point(12, 12)
         Me.gameLengthLbl.Name = "gameLengthLbl"
-        Me.gameLengthLbl.Size = New System.Drawing.Size(264, 96)
+        Me.gameLengthLbl.Size = New System.Drawing.Size(171, 54)
         Me.gameLengthLbl.TabIndex = 15
         Me.gameLengthLbl.Text = "Game Length"
         Me.gameLengthLbl.UseVisualStyleBackColor = True
@@ -102,20 +102,20 @@ Partial Class Options
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe Print", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 111)
+        Me.Label1.Font = New System.Drawing.Font("Segoe Print", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(7, 69)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(451, 33)
+        Me.Label1.Size = New System.Drawing.Size(370, 28)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Determines how long Arcade mode lasts for."
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe Print", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 216)
+        Me.Label2.Font = New System.Drawing.Font("Segoe Print", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(416, 69)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(241, 33)
+        Me.Label2.Size = New System.Drawing.Size(199, 28)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Mutes all ingame audio"
         '
@@ -124,10 +124,10 @@ Partial Class Options
         Me.disableTimePwr.AutoSize = True
         Me.disableTimePwr.BackgroundImage = Global.NuPrachute.My.Resources.Resources.Cloud
         Me.disableTimePwr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.disableTimePwr.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.disableTimePwr.Location = New System.Drawing.Point(12, 462)
+        Me.disableTimePwr.Font = New System.Drawing.Font("Segoe Print", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.disableTimePwr.Location = New System.Drawing.Point(12, 138)
         Me.disableTimePwr.Name = "disableTimePwr"
-        Me.disableTimePwr.Size = New System.Drawing.Size(422, 51)
+        Me.disableTimePwr.Size = New System.Drawing.Size(257, 32)
         Me.disableTimePwr.TabIndex = 18
         Me.disableTimePwr.Text = "Disable stop-time powerup?"
         Me.disableTimePwr.UseVisualStyleBackColor = True
@@ -137,10 +137,10 @@ Partial Class Options
         Me.disableInvinciblePwr.AutoSize = True
         Me.disableInvinciblePwr.BackgroundImage = Global.NuPrachute.My.Resources.Resources.Cloud
         Me.disableInvinciblePwr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.disableInvinciblePwr.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.disableInvinciblePwr.Location = New System.Drawing.Point(12, 612)
+        Me.disableInvinciblePwr.Font = New System.Drawing.Font("Segoe Print", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.disableInvinciblePwr.Location = New System.Drawing.Point(12, 176)
         Me.disableInvinciblePwr.Name = "disableInvinciblePwr"
-        Me.disableInvinciblePwr.Size = New System.Drawing.Size(444, 51)
+        Me.disableInvinciblePwr.Size = New System.Drawing.Size(271, 32)
         Me.disableInvinciblePwr.TabIndex = 19
         Me.disableInvinciblePwr.Text = "Disable invincibility powerup?"
         Me.disableInvinciblePwr.UseVisualStyleBackColor = True
@@ -150,7 +150,7 @@ Partial Class Options
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(639, 797)
+        Me.ClientSize = New System.Drawing.Size(639, 239)
         Me.Controls.Add(Me.disableInvinciblePwr)
         Me.Controls.Add(Me.disableTimePwr)
         Me.Controls.Add(Me.Label2)

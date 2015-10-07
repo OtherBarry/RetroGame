@@ -1,5 +1,6 @@
 ﻿Module Subs
     Public Sub Reset()
+        GameScroll = True
         Enemies.Clear()
         Powerups.Clear()
         Backgrounds.Clear()
@@ -15,10 +16,19 @@
         End If
         DeciSeconds = 0
         Player.Reset()
-        If GameMode <> "Campaign" Then
+        If GameMode = "Campaign" Then
+            Level = 1
+            Lives = 1
+            Seconds = 16.8
+            ScrollSpeed = 1
+            Difficulty = 1
+            speedActive = False
+            freezeActive = False
+            invincibleActive = False
+            DifficultyChange()
+        Else
             Lives = 3
         End If
-        GameScroll = True
         GameState = "Active"
         StateCheck()
     End Sub
@@ -75,7 +85,11 @@
                     Game.EnemySpawn.Enabled = False
                     Game.txtPaused.Visible = True
                     Game.txtPaused.Text = "You Win"
-
+                Case Else
+                    Game.DeciSecond.Enabled = True
+                    Game.Tick.Enabled = True
+                    Game.EnemySpawn.Enabled = True
+                    Game.txtPaused.Visible = False
             End Select
         End If
         Game.txtPaused.Left = (Game.Width / 2) - (Game.txtPaused.Width / 2)
@@ -88,7 +102,6 @@
         Else
             Game.txtLevel.Text = "Difficulty : " + Difficulty.ToString
         End If
-        Game.txtLevel.Text = "Level : " + Level.ToString
         LiveCheck()
     End Sub
     Public Sub LiveCheck()

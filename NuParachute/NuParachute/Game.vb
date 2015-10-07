@@ -40,20 +40,21 @@
             StateCheck()
         End If
         If e.KeyCode = Keys.Escape Then
-            If GameMode = "Campaign" And GameState = "Lose" Then
-                Level = 1
-                Lives = 1
-                Seconds = 16.8
-                ScrollSpeed = 1
-                Difficulty = 1
-                speedActive = False
-                freezeActive = False
-                invincibleActive = False
-                DifficultyChange()
-                Reset()
-            ElseIf GameMode <> "Campaign" And GameState = "Win" Or GameState = "Lose" Or GameState = "Paused" Then
+            If GameState IsNot "Active" Then
+                'If GameMode = "Campaign" Then
+                '    Level = 1
+                '    Lives = 1
+                '    Seconds = 16.8
+                '    ScrollSpeed = 1
+                '    Difficulty = 1
+                '    speedActive = False
+                '    freezeActive = False
+                '    invincibleActive = False
+                '    DifficultyChange()
+                'End If
                 Reset()
             End If
+
         End If
         If e.KeyCode = Keys.Space Then
             If GameState = "Win" Then

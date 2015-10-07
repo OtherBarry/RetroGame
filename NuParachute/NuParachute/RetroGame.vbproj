@@ -193,6 +193,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HelicoptereSmall.ico" />
+    <None Include="Resources\yy.png" />
+    <None Include="Resources\yw.png" />
+    <None Include="Resources\yr.png" />
+    <None Include="Resources\yp.png" />
+    <None Include="Resources\yc.png" />
+    <None Include="Resources\wy.png" />
+    <None Include="Resources\ww.png" />
+    <None Include="Resources\wr.png" />
+    <None Include="Resources\wp.png" />
+    <None Include="Resources\wc.png" />
+    <None Include="Resources\ry.png" />
+    <None Include="Resources\rw.png" />
+    <None Include="Resources\rr.png" />
+    <None Include="Resources\rp.png" />
+    <None Include="Resources\rc.png" />
+    <None Include="Resources\py.png" />
+    <None Include="Resources\pw.png" />
+    <None Include="Resources\pr.png" />
+    <None Include="Resources\pp.png" />
+    <None Include="Resources\pc.png" />
+    <None Include="Resources\cy.png" />
+    <None Include="Resources\cw.png" />
+    <None Include="Resources\cr.png" />
+    <None Include="Resources\cp.png" />
+    <None Include="Resources\cc.png" />
+    <None Include="Resources\Green1.png" />
     <None Include="Resources\white.png" />
     <None Include="Resources\red.png" />
     <None Include="Resources\pink.png" />
