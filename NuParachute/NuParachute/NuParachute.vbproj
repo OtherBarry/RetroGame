@@ -45,9 +45,6 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>HelicoptereSmall.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,12 +118,6 @@
     <Compile Include="Tutorial.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tutorialMenu.Designer.vb">
-      <DependentUpon>tutorialMenu.vb</DependentUpon>
-    </Compile>
-    <Compile Include="tutorialMenu.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Variables.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +138,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="playMenuForm.resx">
       <DependentUpon>playMenuForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tutorial.resx">
-      <DependentUpon>Tutorial.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="tutorialMenu.resx">
-      <DependentUpon>tutorialMenu.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -184,15 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlaneSmall.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\invincibility.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Freeze.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="HelicoptereSmall.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

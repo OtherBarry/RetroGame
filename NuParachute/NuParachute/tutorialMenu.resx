@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RichTextBox5.Text" xml:space="preserve">
+    <value>This is you! You can move this guy using the left and right arrows keys. You got 3 lives so and if you use them all up it's game over, so be careful! Oh, and you can pause the game by pressing P!
+
+
+
+
+
+
+</value>
+  </data>
+  <data name="RichTextBox6.Text" xml:space="preserve">
+    <value>CAMPAIGN: Campaign offers you a level-based progression system for Parachute! Survive increasingly difficult levels until you finally reach the end and win!
+
+ENDLESS: Where's the ground? In this gamemode, you just keep falling and falling and falling, dodging helicopters and planes while trying to get the highest time possible. How long can you last?
+
+ARCADE: The tradtional Parachute experience! Survive a set amount of time dodging all the enemies to get to the bottom and win!
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

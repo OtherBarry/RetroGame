@@ -78,6 +78,7 @@
                 Lives -= 1
                 Exist = False
                 Player.Invincible = True
+                My.Computer.Audio.Play(My.Resources.Explosion, AudioPlayMode.Background)
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs)
@@ -117,7 +118,7 @@
         Private random As Integer
         Public Sub New(ByVal Type As String)
             If Type = "Cloud" Then
-                Image = My.Resources.pixelCloudV2
+                Image = My.Resources.Cloud
                 Top = Game.Height + Height - Game.PictureBox2.Height
                 Exist = False
                 Randomize()
@@ -154,7 +155,7 @@
         Private Width As Integer
         Public Type As String
         Private Exist As Boolean = True
-        Public Sub New(ByVal pType As String)
+        Public Sub New(ByVal pType As String) 'Attempted to apply option menu setting here but failed. See if you can figure it out.
             Type = pType
             Width = 30
             Select Case Type
@@ -163,6 +164,7 @@
                     Width = 16
                 Case "Invincibility"
                     Image = My.Resources.invincibility
+                    Player.Invincible = True
                 Case "Freeze"
                     Image = My.Resources.Freeze
             End Select
@@ -170,6 +172,7 @@
             Randomize()
             Top = CInt(Math.Floor((576 - 128 + 1) * Rnd())) + 128
             Left = CInt(Math.Floor((608 - 32 + 1) * Rnd())) + 32
+
         End Sub
         Public Sub Move()
             If GameScroll = True Then
@@ -187,10 +190,13 @@
                 Exist = False
                 If Type = "Speed" Then
                     Player.Speed = True
+                    My.Computer.Audio.Play(My.Resources.Speed1, AudioPlayMode.Background)
                 ElseIf Type = "Invincibility" Then
                     Player.Invincible = True
+                    My.Computer.Audio.Play(My.Resources.Invincibility1, AudioPlayMode.Background)
                 ElseIf Type = "Freeze" Then
                     Player.Freeze = True
+                    My.Computer.Audio.Play(My.Resources.Freeze1, AudioPlayMode.Background)
                 End If
             End If
             If Exist = True And Top < Game.PictureBox1.Height - Height Then
@@ -248,12 +254,7 @@
         End Sub
         Private Sub CollisionDetect()
             If Hitbox.IntersectsWith(New Rectangle(Game.PictureBox2.Left, Game.PictureBox2.Top, Game.PictureBox2.Width, Game.PictureBox2.Height)) Then
-                If GameMode = "Arcade" Then
-                    GameState = "Win"
-                ElseIf GameMode = "Campaign"
-                    LevelUp()
-                    Level += 1
-                End If
+                GameState = "Win"
             End If
         End Sub
         Public Sub Draw(e As PaintEventArgs)

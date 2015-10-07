@@ -1,45 +1,76 @@
 ﻿Public Class Options
-    Private infoList(0 To 6) As String
-    Private Sub Options_Load(sender As Object, e As EventArgs) Handles Me.Load
-        numDropSpeed.Value = ScrollSpeed
-        numLength.Value = Seconds
-        numLives.Value = Lives
-    End Sub
-    Private Sub ValueChanged(sender As Object, e As EventArgs) Handles numCharSpeed.ValueChanged, numDropSpeed.ValueChanged, numEnSpeed.ValueChanged, numLength.ValueChanged, numLives.ValueChanged
-        ScrollSpeed = numDropSpeed.Value
-        Seconds = numLength.Value
-        Lives = numLives.Value
-        infoList(0) = "Changes the rate at which your parachutist drops"
-        infoList(1) = "Changes the right at which your parachutist flies from side to side"
-        infoList(2) = "Changes the rate at which helicopters move"
-        infoList(3) = "Changes how long Arcade mode lasts for"
-        infoList(4) = "Changes how many lives your character has"
-        infoList(5) = "Mute's all in game audio"
-        infoList(6) = "Disables all powerups for a more vanilla experience"
-    End Sub
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         Me.Close()
         Main.Show()
     End Sub
-    Private Sub muteOption_MouseHover(sender As Object, e As EventArgs) Handles muteOption.MouseHover
-        optionInfoBox.Text = infoList(5)
+    Private Sub btnHome_VisibleChanged(sender As Object, e As EventArgs) Handles btnHome.VisibleChanged
+        btnHome.FlatStyle = Windows.Forms.FlatStyle.Flat
+        btnHome.FlatAppearance.BorderSize = 0
+        btnHome.FlatAppearance.MouseDownBackColor = Color.DarkBlue
+        btnHome.FlatAppearance.MouseOverBackColor = Color.LightBlue
+        btnHome.BackColor = Color.Transparent
     End Sub
-    Private Sub numDropSpeed_MouseHover(sender As Object, e As EventArgs) Handles numDropSpeed.MouseHover
-        optionInfoBox.Text = infoList(0)
+    Private Sub disableLightningPwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableLightningPwr.CheckedChanged
+        If disableLightningPwr.Checked = True Then
+            speedActive = False
+        Else
+            speedActive = True
+        End If
+        If disableTimePwr.Checked = True Then
+            freezeActive = False
+        Else
+            freezeActive = True
+        End If
+        If disableInvinciblePwr.Checked = True Then
+            invincibleActive = False
+        Else
+            invincibleActive = True
+        End If
+        If muteOption.Checked = True Then
+            audioActive = False
+        Else
+            audioActive = True
+        End If
     End Sub
-    Private Sub numCharSpeed_MouseHover(sender As Object, e As EventArgs) Handles numCharSpeed.MouseHover
-        optionInfoBox.Text = infoList(1)
+    Private Sub gameLengthLbl_VisibleChanged(sender As Object, e As EventArgs) Handles gameLengthLbl.VisibleChanged
+        gameLengthLbl.FlatStyle = Windows.Forms.FlatStyle.Flat
+        gameLengthLbl.FlatAppearance.BorderSize = 0
+        gameLengthLbl.FlatAppearance.MouseDownBackColor = Color.DarkBlue
+        gameLengthLbl.FlatAppearance.MouseOverBackColor = Color.LightBlue
+        gameLengthLbl.BackColor = Color.Transparent
     End Sub
-    Private Sub numEnSpeed_MouseHover(sender As Object, e As EventArgs) Handles numEnSpeed.MouseHover
-        optionInfoBox.Text = infoList(2)
+    Private Sub disableTimePwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableTimePwr.CheckedChanged
+        If disableLightningPwr.Checked = True Then
+            speedActive = False
+        Else
+            speedActive = True
+        End If
+        If disableTimePwr.Checked = True Then
+            freezeActive = False
+        Else
+            freezeActive = True
+        End If
+        If disableInvinciblePwr.Checked = True Then
+            invincibleActive = False
+        Else
+            invincibleActive = True
+        End If
     End Sub
-    Private Sub numLength_MouseHover(sender As Object, e As EventArgs) Handles numLength.MouseHover
-        optionInfoBox.Text = infoList(3)
-    End Sub
-    Private Sub numLives_MouseHover(sender As Object, e As EventArgs) Handles numLives.MouseHover
-        optionInfoBox.Text = infoList(4)
-    End Sub
-    Private Sub disablePowerups_MouseHover(sender As Object, e As EventArgs) Handles disablePowerups.MouseHover
-        optionInfoBox.Text = infoList(6)
+    Private Sub disableInvinciblePwr_CheckedChanged(sender As Object, e As EventArgs) Handles disableInvinciblePwr.CheckedChanged
+        If disableLightningPwr.Checked = True Then
+            speedActive = False
+        Else
+            speedActive = True
+        End If
+        If disableTimePwr.Checked = True Then
+            freezeActive = False
+        Else
+            freezeActive = True
+        End If
+        If disableInvinciblePwr.Checked = True Then
+            invincibleActive = False
+        Else
+            invincibleActive = True
+        End If
     End Sub
 End Class

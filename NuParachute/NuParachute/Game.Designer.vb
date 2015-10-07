@@ -86,11 +86,11 @@ Partial Class Game
         '
         Me.txtTitle.AutoSize = True
         Me.txtTitle.BackColor = System.Drawing.Color.Black
-        Me.txtTitle.Font = New System.Drawing.Font("Courier New", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTitle.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTitle.ForeColor = System.Drawing.Color.White
-        Me.txtTitle.Location = New System.Drawing.Point(17, 17)
+        Me.txtTitle.Location = New System.Drawing.Point(12, 9)
         Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(157, 30)
+        Me.txtTitle.Size = New System.Drawing.Size(159, 47)
         Me.txtTitle.TabIndex = 4
         Me.txtTitle.Text = "Parachute"
         '
@@ -98,11 +98,11 @@ Partial Class Game
         '
         Me.txtLevel.AutoSize = True
         Me.txtLevel.BackColor = System.Drawing.Color.Black
-        Me.txtLevel.Font = New System.Drawing.Font("Courier New", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLevel.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLevel.ForeColor = System.Drawing.Color.White
-        Me.txtLevel.Location = New System.Drawing.Point(17, 721)
+        Me.txtLevel.Location = New System.Drawing.Point(14, 710)
         Me.txtLevel.Name = "txtLevel"
-        Me.txtLevel.Size = New System.Drawing.Size(125, 30)
+        Me.txtLevel.Size = New System.Drawing.Size(119, 47)
         Me.txtLevel.TabIndex = 5
         Me.txtLevel.Text = "Level 1"
         '
@@ -110,23 +110,23 @@ Partial Class Game
         '
         Me.txtTime.AutoSize = True
         Me.txtTime.BackColor = System.Drawing.Color.Black
-        Me.txtTime.Font = New System.Drawing.Font("Courier New", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTime.Font = New System.Drawing.Font("Segoe Print", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTime.ForeColor = System.Drawing.Color.White
-        Me.txtTime.Location = New System.Drawing.Point(471, 721)
+        Me.txtTime.Location = New System.Drawing.Point(479, 710)
         Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(157, 30)
+        Me.txtTime.Size = New System.Drawing.Size(149, 47)
         Me.txtTime.TabIndex = 6
         Me.txtTime.Text = "Time : 0s"
         '
         'txtPaused
         '
         Me.txtPaused.AutoSize = True
-        Me.txtPaused.Font = New System.Drawing.Font("Constantia", 50.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPaused.Location = New System.Drawing.Point(188, 343)
+        Me.txtPaused.Font = New System.Drawing.Font("Segoe Print", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPaused.Location = New System.Drawing.Point(70, 252)
         Me.txtPaused.Name = "txtPaused"
-        Me.txtPaused.Size = New System.Drawing.Size(264, 82)
+        Me.txtPaused.Size = New System.Drawing.Size(507, 170)
         Me.txtPaused.TabIndex = 7
-        Me.txtPaused.Text = "Paused"
+        Me.txtPaused.Text = "        Paused" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Press P to resume)"
         Me.txtPaused.Visible = False
         '
         'EnemySpawn

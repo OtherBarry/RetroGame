@@ -1,16 +1,34 @@
 ﻿Public Class Game
     Private Sub Game_Load(sender As Object, e As EventArgs) Handles Me.Load
+        My.Computer.Audio.Stop()
         GameState = "Active"
-        Enemies.Add(New Enemy("Helicopter"))
-        Backgrounds.Add(New Background("Cloud"))
-        Powerups.Add(New Powerup("Speed"))
-        Powerups.Add(New Powerup("Invincibility"))
-        Powerups.Add(New Powerup("Freeze"))
         DeciSecond.Enabled = True
         EnemySpawn.Enabled = True
         Tick.Enabled = True
         DoubleBuffered = True
+        If GameMode = "Campaign" Then
+            Level = 1
+            Lives = 1
+            Seconds = 18
+            ScrollSpeed = 1
+            Difficulty = 1
+            speedActive = False
+            freezeActive = False
+            invincibleActive = False
+        End If
         DifficultyChange()
+        Enemies.Add(New Enemy("Helicopter"))
+        Backgrounds.Add(New Background("Cloud"))
+        If speedActive = True Then
+            Powerups.Add(New Powerup("Speed"))
+        End If
+        If freezeActive = True Then
+            Powerups.Add(New Powerup("Freeze"))
+        End If
+        If invincibleActive = True Then
+            Powerups.Add(New Powerup("Invincibility"))
+        End If
+
     End Sub
     Private Sub Game_KeyPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.P Then
@@ -22,8 +40,76 @@
             StateCheck()
         End If
         If e.KeyCode = Keys.Escape Then
-            If GameState = "Win" Or GameState = "Lose" Or GameState = "Paused" Then
+            If GameMode = "Campaign" And GameState = "Lose" Then
+                Level = 1
+                Lives = 1
+                Seconds = 16.8
+                ScrollSpeed = 1
+                Difficulty = 1
+                speedActive = False
+                freezeActive = False
+                invincibleActive = False
+                DifficultyChange()
                 Reset()
+            ElseIf GameMode <> "Campaign" And GameState = "Win" Or GameState = "Lose" Or GameState = "Paused" Then
+                Reset()
+            End If
+        End If
+        If e.KeyCode = Keys.Space Then
+            If GameState = "Win" Then
+                Select Case Level
+                    Case 1
+                        Seconds = 21.84
+                        ScrollSpeed = 1.25
+                        Difficulty = 2
+                        speedActive = True
+
+                    Case 2
+                        Seconds = 26.88
+                        ScrollSpeed = 1.5
+                        Difficulty = 3
+
+                    Case 3
+                        Seconds = 31.92
+                        ScrollSpeed = 1.75
+                        Difficulty = 4
+                        freezeActive = True
+                    Case 4
+                        Seconds = 36.96
+                        ScrollSpeed = 2
+                        Difficulty = 5
+                    Case 5
+                        Seconds = 42
+                        ScrollSpeed = 2.25
+                        Difficulty = 6
+                        invincibleActive = True
+                    Case 6
+                        Seconds = 47.04
+                        ScrollSpeed = 2.5
+                        Difficulty = 7
+                    Case 7
+                        Seconds = 52.08
+                        ScrollSpeed = 2.75
+                        Difficulty = 8
+                    Case 8
+                        Seconds = 57.12
+                        ScrollSpeed = 3
+                        Difficulty = 9
+                    Case 9
+                        Seconds = 60.48
+                        ScrollSpeed = 3
+                        Difficulty = 10
+                End Select
+                Level += 1
+                Lives += 1
+                DifficultyChange()
+                If Level > 10 Then
+                    txtPaused.Text = "Campaign Completed"
+                Else
+                    Reset()
+                End If
+
+
             End If
         End If
     End Sub
@@ -62,6 +148,7 @@
         Player.Move()
         Player.Draw(e)
         LabelUpdate()
+        LiveCheck()
     End Sub
     Private Sub Tick_Tick(sender As Object, e As EventArgs) Handles Tick.Tick
         Invalidate()
@@ -76,6 +163,15 @@
     End Sub
 
     Private Sub txtTitle_Click(sender As Object, e As EventArgs) Handles txtTitle.Click
+        Me.Close()
+        Main.Show()
+    End Sub
+
+    Private Sub txtPaused_Click(sender As Object, e As EventArgs) Handles txtPaused.Click
+
+    End Sub
+
+    Private Sub exitTutorialBtn_Click(sender As Object, e As EventArgs)
         Me.Close()
         Main.Show()
     End Sub
