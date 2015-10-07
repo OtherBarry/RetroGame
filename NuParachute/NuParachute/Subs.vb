@@ -17,15 +17,6 @@
         DeciSeconds = 0
         Player.Reset()
         If GameMode = "Campaign" Then
-            Level = 1
-            Lives = 1
-            Seconds = 16.8
-            ScrollSpeed = 1
-            Difficulty = 1
-            speedActive = False
-            freezeActive = False
-            invincibleActive = False
-            DifficultyChange()
         Else
             Lives = 3
         End If
@@ -97,7 +88,7 @@
     Public Sub LabelUpdate()
         Game.txtTime.Text = "Time : " + (DeciSeconds / 10).ToString + " s"
         Game.txtTime.Left = Game.Width - Game.txtTime.Width - 17
-        If GameState = "Campaign" Then
+        If GameMode = "Campaign" Then
             Game.txtLevel.Text = "Level : " + Level.ToString
         Else
             Game.txtLevel.Text = "Difficulty : " + Difficulty.ToString

@@ -41,17 +41,17 @@
         End If
         If e.KeyCode = Keys.Escape Then
             If GameState IsNot "Active" Then
-                'If GameMode = "Campaign" Then
-                '    Level = 1
-                '    Lives = 1
-                '    Seconds = 16.8
-                '    ScrollSpeed = 1
-                '    Difficulty = 1
-                '    speedActive = False
-                '    freezeActive = False
-                '    invincibleActive = False
-                '    DifficultyChange()
-                'End If
+                If GameMode = "Campaign" Then
+                    Level = 1
+                    Lives = 1
+                    Seconds = 16.8
+                    ScrollSpeed = 1
+                    Difficulty = 1
+                    speedActive = False
+                    freezeActive = False
+                    invincibleActive = False
+                    DifficultyChange()
+                End If
                 Reset()
             End If
 
